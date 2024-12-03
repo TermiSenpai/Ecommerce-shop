@@ -1,0 +1,77 @@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Blog";
+}
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="left-sidebar">
+                    <h2>Category</h2>
+                    <div class="panel-group category-products" id="accordian">
+                        <!--category-products-->
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
+                                        <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                                        Sportswear
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="sportswear" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <ul>
+                                        <li><a href="#">Nike</a></li>
+                                        <li><a href="#">Under Armour</a></li>
+                                        <li><a href="#">Adidas</a></li>
+                                        <li><a href="#">Puma</a></li>
+                                        <li><a href="#">ASICS</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Add more categories as needed -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                <div class="blog-post-area">
+                    <h2 class="title text-center">Latest From our Blog</h2>
+                    <div class="single-blog-post">
+                        <h3>Girls Pink T Shirt arrived in store</h3>
+                        <div class="post-meta">
+                            <ul>
+                                <li><i class="fa fa-user"></i> Mac Doe</li>
+                                <li><i class="fa fa-clock-o"></i> 1:33 pm</li>
+                                <li><i class="fa fa-calendar"></i> DEC 5, 2013</li>
+                            </ul>
+                            <span>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                            </span>
+                        </div>
+                        <a href="#">
+                            <img src="~/images/blog/blog-one.jpg" alt="Blog One">
+                        </a>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <a class="btn btn-primary" href="#">Read More</a>
+                    </div>
+                    <!-- Add more blog posts as needed -->
+                    <div class="pagination-area">
+                        <ul class="pagination">
+                            <li><a href="#" class="active">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

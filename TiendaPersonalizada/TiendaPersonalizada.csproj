@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-TiendaPersonalizada-444916a6-6cce-48ca-ae5d-ab6bcbc7852e</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Home\404.cshtml" />
+    <Content Remove="Views\Home\blog-single.cshtml" />
+    <Content Remove="Views\Home\blog.cshtml" />
+    <Content Remove="Views\Home\cart.cshtml" />
+    <Content Remove="Views\Home\checkout.cshtml" />
+    <Content Remove="Views\Home\contact-us.cshtml" />
+    <Content Remove="Views\Home\login.cshtml" />
+    <Content Remove="Views\Home\product-details.cshtml" />
+    <Content Remove="Views\Home\shop.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Home\404.cshtml" />
+    <None Include="Views\Blog\blog-single.cshtml" />
+    <None Include="Views\Blog\blog.cshtml" />
+    <None Include="Views\Home\cart.cshtml" />
+    <None Include="Views\Home\checkout.cshtml" />
+    <None Include="Views\Contact\contact-us.cshtml" />
+    <None Include="Views\Home\login.cshtml" />
+    <None Include="Views\Home\product-details.cshtml" />
+    <None Include="Views\Shop\shop.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.11" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.11" />
+  </ItemGroup>
+
+</Project>
