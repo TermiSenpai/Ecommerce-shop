@@ -1,0 +1,64 @@
+﻿/* Menú lateral */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -300px; /* Oculto fuera de la pantalla */
+    width: 300px;
+    height: 100%;
+    background-color: #121212;
+    color: #E0E0E0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: left 0.3s ease;
+    z-index: 1000;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+    .side-menu.open {
+        left: 0; /* Aparece en pantalla */
+    }
+
+    /* Botón para cerrar el menú */
+    .side-menu .close-btn {
+        font-size: 20px;
+        font-weight: bold;
+        color: #E0E0E0;
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: block;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+    /* Enlaces del menú */
+    .side-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        .side-menu ul li {
+            margin: 15px 0;
+        }
+
+            .side-menu ul li a {
+                color: #FFA726;
+                text-decoration: none;
+                font-size: 16px;
+            }
+
+                .side-menu ul li a:hover {
+                    color: #03DAC6;
+                }
+
+    /* Etiquetas especiales */
+    .side-menu .tag {
+        display: inline-block;
+        background-color: #FFA726;
+        color: #121212;
+        font-size: 12px;
+        padding: 2px 6px;
+        margin-left: 5px;
+        border-radius: 4px;
+    }
