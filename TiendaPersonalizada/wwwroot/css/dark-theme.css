@@ -21,14 +21,28 @@ header {
         vertical-align: middle;
     }
 
+/* Botón para "Todas las categorías" */
     header .category-menu {
-        display: inline-block;
-        color: #FFA726;
-        margin-right: 15px;
-        cursor: pointer;
-        font-weight: 500;
-        font-size: 14px;
+        background-color: #121212; /* Fondo en hover */
+        border: none; /* Sin borde */
+        color: #E0E0E0; /* Color del texto */
+        cursor: pointer; /* Cambia el cursor para indicar interactividad */
+        font-size: 14px; /* Tamaño del texto */
+        font-weight: 500; /* Peso del texto */
+        padding: 0; /* Sin relleno */
+        text-align: left; /* Alineado a la izquierda */
+        transition: color 0.3s ease, background-color 0.3s ease; /* Transición suave */
+        padding: 15px;
     }
+
+header .category-menu:hover {
+    background-color: #1E1E1E; /* Fondo en hover */
+    color: #03DAC6; /* Texto en hover */
+}
+
+header .category-menu:focus {
+    outline: none; /* Elimina el borde al hacer clic */
+}
 
     header .search-bar {
         display: inline-flex;
@@ -37,7 +51,7 @@ header {
         border: 1px solid #333;
         border-radius: 4px;
         padding: 5px;
-        width: 50%;
+        width: 75%;
     }
 
         header .search-bar input {
@@ -64,6 +78,7 @@ header {
     header .user-menu {
         display: inline-block;
         float: right;
+        align-items:center;
     }
 
         header .user-menu a {
@@ -103,21 +118,56 @@ header {
 
 /* Footer */
 footer {
-    background-color: #121212; /* Más oscuro que el body */
-    color: #E0E0E0; /* Mantener texto legible */
-    text-align: center;
-    padding: 20px;
-    border-top: 1px solid #333;
+    background-color: #121212; /* Fondo oscuro */
+    color: #E0E0E0; /* Texto claro */
+    padding: 40px 20px;
 }
 
-    footer a {
-        color: #FFA726;
-        text-decoration: none;
+    footer h5 {
+        color: #FFA726; /* Títulos en color de acento */
+        margin-bottom: 15px;
+        font-size: 16px;
+        font-weight: 600;
     }
 
-        footer a:hover {
-            color: #03DAC6;
+    footer ul {
+        list-style: none; /* Sin viñetas */
+        padding: 0;
+    }
+
+        footer ul li {
+            margin-bottom: 10px;
         }
+
+            footer ul li a {
+                color: #E0E0E0; /* Enlaces en gris claro */
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+
+                footer ul li a:hover {
+                    color: #03DAC6; /* Color de hover */
+                }
+
+    footer .footer-bottom {
+        background-color: #1E1E1E; /* Fondo más oscuro */
+        padding: 10px 0;
+        margin-top: 20px;
+    }
+
+        footer .footer-bottom p {
+            margin: 0;
+            color: #888888; /* Texto apagado */
+            font-size: 14px;
+            text-align: center;
+        }
+
+    /* Iconos de la comunidad */
+    footer ul li a i {
+        margin-right: 10px; /* Espaciado entre icono y texto */
+        font-size: 18px;
+    }
+
 
 @media (max-width: 768px) {
     header .search-bar {

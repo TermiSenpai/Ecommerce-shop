@@ -1,88 +1,155 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - TiendaPersonalizada</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - CustomWear</title>
 
-    <!-- CSS references -->
-    <link href="~/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="~/css/dark-theme.css" rel="stylesheet" /> <!-- Enlace al nuevo archivo de tema oscuro -->
-    <link rel="shortcut icon" href="~/images/ico/favicon.ico" />
+	<!-- Referencias de CSS globales -->
+	<link href="~/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="~/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="~/css/dark-theme.css" rel="stylesheet" />
+	<link href="~/css/side-menu.css" rel="stylesheet" />
+	<link rel="shortcut icon" href="~/images/ico/favicon.ico" />
+	<!-- @RenderSection("Styles", required: false) -->
 </head>
 <body>
-    <header id="header">
-        <div class="container">
-            <div class="row align-items-center">
-                <!-- Logo -->
-                <div class="col-sm-3">
-                    <div class="logo">
-                        <a asp-area="" asp-controller="Home" asp-action="Index">
-                            <img src="~/images/home/logo.png" alt="Logo" />
-                        </a>
-                    </div>
-                </div>
-                <!-- Categorías y Búsqueda -->
-                <div class="col-sm-6">
-                    <span class="category-menu">Todas las categorías</span>
-                    <div class="search-bar">
-                        <input type="text" placeholder="Buscar" />
-                        <button><i class="fa fa-search"></i></button>
-                    </div>
-                </div>
-                <!-- Usuario y Carrito -->
-                <div class="col-sm-3">
-                    <div class="user-menu">
-                        <a href="#"><i class="fa fa-user"></i> Usuario</a>
-                        <a href="#"><i class="fa fa-shopping-cart"></i> Mi Cesta</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Navegación -->
-            <ul class="nav">
-                <li><a href="#">OPCIÓN 1</a></li>
-                <li><a href="#">OPCIÓN 2</a></li>
-                <li><a href="#">OPCIÓN 3</a></li>
-                <li><a href="#">OPCIÓN 4</a></li>
-            </ul>
-        </div>
-    </header>
+	<header id="header">
+		<div class="container">
+			<div class="row align-items-center">
+				<!-- Logo -->
+				<div class="col-sm-3">
+					<div class="logo">
+						<a asp-area="" asp-controller="Home" asp-action="Index">
+							<img src="~/images/home/logo.png" alt="Logo" />
+						</a>
+					</div>
+				</div>
+				<!-- Categorías y Búsqueda -->
+				<div class="col-sm-6">
+					<button class="category-menu" onclick="toggleMenu()">☰ Categorías</button>
+					<div class="search-bar">
+						<input type="text" placeholder="Buscar" />
+						<button><i class="fa fa-search"></i></button>
+					</div>
+				</div>
+				<!-- Usuario y Carrito -->
+				<div class="col-sm-3">
+					<div class="user-menu">
+						<a href="#"><i class="fa fa-user"></i> Usuario</a>
+						<a href="#"><i class="fa fa-shopping-cart"></i> Mi Cesta</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
 
+	<!-- Menú Lateral -->
+	<div id="sideMenu" class="side-menu">
+		<button class="close-btn" onclick="closeMenu()">×</button>
+		<h2>Todas las categorías</h2>
+		<ul>
+			<li><a href="#">OPCIÓN 1</a></li>
+			<li><a href="#">OPCIÓN 2</a></li>
+			<li><a href="#">OPCIÓN 3</a></li>
+			<li><a href="#">OPCIÓN 4</a></li>
+			<li><a href="#">OPCIÓN 5</a></li>
+			<li><a href="#">OPCIÓN 6</a></li>
+			<li><a href="#">OPCIÓN 7</a></li>
+			<li><a href="#">OPCIÓN 8</a></li>
+			<li><a href="#">OPCIÓN 9<span class="tag">Nuevo</span></a></li>
+			<li><a href="#">OPCIÓN 10 <span class="tag">Promoción</span></a></li>
+			<li><a href="#">OPCIÓN 11<span class="tag">Trending</span></a></li>
+			<li><a href="#">OPCIÓN 12 <span class="tag">Te recomendamos</span></a></li>
+		</ul>
+	</div>
 
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+	<div class="container">
+		<main role="main" class="pb-3">
+			@RenderBody()
+		</main>
+	</div>
 
-    <footer id="footer">
-        <div class="footer-top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-2">
-                        <div class="companyinfo">
-                            <h2><span>e</span>-shopper</h2>
-                            <p>Custom clothing at the best price.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+	<footer id="footer">
+		<div class="footer-top">
+			<div class="container">
+				<div class="row">
+					<!-- Por qué comprar -->
+					<div class="col-md-2">
+						<h5>Por qué comprar</h5>
+						<ul>
+							<li><a href="#">Cómo comprar</a></li>
+							<li><a href="#">Formas de pago</a></li>
+							<li><a href="#">Gastos de envío</a></li>
+							<li><a href="#">Cupones descuento</a></li>
+							<li><a href="#">Preguntas frecuentes</a></li>
+							<li><a href="#">Opiniones de clientes</a></li>
+							<li><a href="#">Tarjetas regalo</a></li>
+						</ul>
+					</div>
+					<!-- Quiénes somos -->
+					<div class="col-md-2">
+						<h5>Quiénes somos</h5>
+						<ul>
+							<li><a href="#">Quiénes somos</a></li>
+							<li><a href="#">Compromisos</a></li>
+							<li><a href="#">Nuestras tiendas</a></li>
+							<li><a href="#">Nuestras Marcas</a></li>
+							<li><a href="#">Condiciones de compra</a></li>
+							<li><a href="#">Afiliados</a></li>
+							<li><a href="#">Aviso legal</a></li>
+							<li><a href="#">Privacidad</a></li>
+						</ul>
+					</div>
+					<!-- Contactar -->
+					<div class="col-md-2">
+						<h5>Contactar</h5>
+						<ul>
+							<li><a href="#">Contacto y Ayuda</a></li>
+							<li><a href="#">Devoluciones y Garantías</a></li>
+							<li><a href="#">Wiki</a></li>
+							<li><a href="#">Opina y Gana</a></li>
+							<li><a href="#">Publicidad</a></li>
+							<li><a href="#">Trabaja con nosotros</a></li>
+							<li><a href="#">Política de cookies</a></li>
+						</ul>
+					</div>
+					<!-- Otros -->
+					<div class="col-md-2">
+						<h5>Otros</h5>
+						<ul>
+							<li><a href="#">Replay</a></li>
+							<li><a href="#">Black Friday</a></li>
+							<li><a href="#">Cyber Monday</a></li>
+							<li><a href="#">PcDays</a></li>
+							<li><a href="#">Marketplace</a></li>
+							<li><a href="#">Concursos</a></li>
+							<li><a href="#">Cita asistencia técnica</a></li>
+						</ul>
+					</div>
+					<!-- Comunidad -->
+					<div class="col-md-2">
+						<h5>Comunidad</h5>
+						<ul>
+							<li><a href="#"><i class="fa fa-instagram"></i> Instagram</a></li>
+							<li><a href="#"><i class="fa fa-twitter"></i> Twitter</a></li>
+							<li><a href="#"><i class="fa fa-rss"></i> Blog</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<div class="container">
+				<p class="text-center">Copyright © @DateTime.Now.Year TermiSenpai. All rights reserved.</p>
+			</div>
+		</div>
+	</footer>
 
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="row">
-                    <p class="pull-left">Copyright © @DateTime.Now.Year TiendaPersonalizada. All rights reserved.</p>
-                    <p class="pull-right">Contact us: <a href="mailto:escarpaprieto@gmail.com">Mail</a></p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- JS References -->
-    <script src="~/js/jquery.js"></script>
-    <script src="~/js/bootstrap.min.js"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+	<!-- JS References -->
+	<script src="~/js/jquery.js"></script>
+	<script src="~/js/bootstrap.min.js"></script>
+	<script src="~/js/side-menu.js"></script>
+	@RenderSection("Scripts", required: false)
 </body>
 </html>
