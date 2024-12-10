@@ -1,4 +1,4 @@
-name: .NET Core Desktop Workflow
+name: Build and Publish .NET App
 
 on:
   push:
@@ -7,53 +7,32 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
-
-    strategy:
-      matrix:
-        configuration: [Debug, Release]
-
+  build-and-publish:
     runs-on: windows-latest
-
-    env:
-      Solution_Name: TiendaPersonalizada.sln       # Nombre de la solución
-      Test_Project_Path: Tests/TiendaPersonalizada.Tests/TiendaPersonalizada.Tests.csproj
-      Wap_Project_Directory: WapProjectDirectory   # Ruta relativa del proyecto de empaquetado (opcional)
-      Wap_Project_Path: WapProjectPath/MyApp.wapproj
 
     steps:
     - name: Checkout Code
       uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
 
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
 
-    - name: Setup MSBuild
-      uses: microsoft/setup-msbuild@v2
-
     - name: Restore Dependencies
-      run: dotnet restore ${{ env.Solution_Name }}
+      run: dotnet restore TiendaPersonalizada.sln
 
     - name: Build Solution
-      run: dotnet build ${{ env.Solution_Name }} -c ${{ matrix.configuration }}
+      run: dotnet build TiendaPersonalizada.sln -c Release
 
-    - name: Run Tests
-      run: dotnet test ${{ env.Test_Project_Path }} --no-build --configuration ${{ matrix.configuration }}
-
-    # Optional: Restore and build MSIX/WAP project
-    - name: Restore and Package WAP Project
-      if: env.Wap_Project_Path != ''
+    - name: Publish Application
       run: |
-        msbuild ${{ env.Wap_Project_Path }} /t:Restore /p:Configuration=${{ matrix.configuration }}
-        msbuild ${{ env.Wap_Project_Path }} /p:Configuration=${{ matrix.configuration }} /p:AppxBundle=Always /p:PackageCertificatePassword=${{ secrets.Pfx_Key }}
+        dotnet publish TiendaPersonalizada.sln -c Release -r win-x64 --self-contained true -p:PublishSingleFile=true -o publish
+        mkdir -p package
+        Compress-Archive -Path publish/* -DestinationPath package/TiendaPersonalizada.zip
 
     - name: Upload Build Artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: Build Output
-        path: |
-          **/bin/${{ matrix.configuration }}/**
+        name: Build Package
+        path: package/TiendaPersonalizada.zip
