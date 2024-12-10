@@ -17,8 +17,6 @@ jobs:
 
     env:
       Solution_Name: TiendaPersonalizada.sln       # Nombre de la solución
-      Wap_Project_Directory: WapProjectDirectory   # Ruta relativa del proyecto de empaquetado (opcional)
-      Wap_Project_Path: WapProjectPath/MyApp.wapproj
 
     steps:
     - name: Checkout Code
@@ -40,16 +38,13 @@ jobs:
     - name: Build Solution
       run: dotnet build ${{ env.Solution_Name }} -c ${{ matrix.configuration }}
 
-    # Optional: Restore and package WAP Project
-    - name: Restore and Package WAP Project
-      if: env.Wap_Project_Path != ''
+    - name: Package Build Output
       run: |
-        msbuild ${{ env.Wap_Project_Path }} /t:Restore /p:Configuration=${{ matrix.configuration }}
-        msbuild ${{ env.Wap_Project_Path }} /p:Configuration=${{ matrix.configuration }} /p:AppxBundle=Always /p:PackageCertificatePassword=${{ secrets.Pfx_Key }}
+        mkdir -p package
+        zip -r package/TiendaPersonalizada-${{ matrix.configuration }}.zip **/bin/${{ matrix.configuration }}/*
 
     - name: Upload Build Artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: Build Output
-        path: |
-          **/bin/${{ matrix.configuration }}/**
+        name: Build Package
+        path: package/TiendaPersonalizada-${{ matrix.configuration }}.zip
