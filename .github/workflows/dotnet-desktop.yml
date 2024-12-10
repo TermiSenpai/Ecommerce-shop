@@ -40,8 +40,9 @@ jobs:
 
     - name: Package Build Output
       run: |
+        $outputPath = "package/TiendaPersonalizada-${{ matrix.configuration }}.zip"
         mkdir -p package
-        zip -r package/TiendaPersonalizada-${{ matrix.configuration }}.zip **/bin/${{ matrix.configuration }}/*
+        Compress-Archive -Path **/bin/${{ matrix.configuration }}/* -DestinationPath $outputPath
 
     - name: Upload Build Artifacts
       uses: actions/upload-artifact@v3
