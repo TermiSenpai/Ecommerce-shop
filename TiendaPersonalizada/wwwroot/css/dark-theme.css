@@ -1,0 +1,181 @@
+﻿/* Estilo General */
+body {
+    background-color: #1E1E1E; /* Fondo del body en tono gris oscuro */
+    color: #E0E0E0; /* Texto en gris claro */
+    font-family: 'Roboto', sans-serif; /* Fuente moderna */
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    background-color: #121212; /* Fondo oscuro */
+    color: #E0E0E0; /* Texto claro */
+    padding: 10px 0;
+    border-bottom: 1px solid #333; /* Separador inferior */
+}
+
+    header .logo img {
+        max-height: 40px; /* Tamaño adecuado del logo */
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+/* Botón para "Todas las categorías" */
+    header .category-menu {
+        background-color: #121212; /* Fondo en hover */
+        border: none; /* Sin borde */
+        color: #E0E0E0; /* Color del texto */
+        cursor: pointer; /* Cambia el cursor para indicar interactividad */
+        font-size: 14px; /* Tamaño del texto */
+        font-weight: 500; /* Peso del texto */
+        padding: 0; /* Sin relleno */
+        text-align: left; /* Alineado a la izquierda */
+        transition: color 0.3s ease, background-color 0.3s ease; /* Transición suave */
+        padding: 15px;
+    }
+
+header .category-menu:hover {
+    background-color: #1E1E1E; /* Fondo en hover */
+    color: #03DAC6; /* Texto en hover */
+}
+
+header .category-menu:focus {
+    outline: none; /* Elimina el borde al hacer clic */
+}
+
+    header .search-bar {
+        display: inline-flex;
+        align-items: center;
+        background-color: #1E1E1E;
+        border: 1px solid #333;
+        border-radius: 4px;
+        padding: 5px;
+        width: 75%;
+    }
+
+        header .search-bar input {
+            border: none;
+            background: transparent;
+            color: #E0E0E0;
+            outline: none;
+            padding: 5px;
+            flex-grow: 1;
+        }
+
+            header .search-bar input::placeholder {
+                color: #888888; /* Texto de placeholder */
+            }
+
+        header .search-bar button {
+            background: none;
+            border: none;
+            color: #E0E0E0;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+    header .user-menu {
+        display: inline-block;
+        float: right;
+        align-items:center;
+    }
+
+        header .user-menu a {
+            margin: 0 10px;
+            color: #E0E0E0;
+            text-decoration: none;
+        }
+
+            header .user-menu a:hover {
+                color: #03DAC6;
+            }
+
+/* Navegación */
+.nav {
+    margin-top: 10px;
+    background-color: #121212;
+    padding: 10px 0;
+}
+
+    .nav > li {
+        display: inline-block;
+        margin-right: 20px;
+    }
+
+        .nav > li > a {
+            color: #E0E0E0;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+            .nav > li.active > a,
+            .nav > li > a:hover {
+                color: #03DAC6;
+                background-color: #1E1E1E;
+                font-weight: bold;
+            }
+
+/* Footer */
+footer {
+    background-color: #121212; /* Fondo oscuro */
+    color: #E0E0E0; /* Texto claro */
+    padding: 40px 20px;
+}
+
+    footer h5 {
+        color: #FFA726; /* Títulos en color de acento */
+        margin-bottom: 15px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    footer ul {
+        list-style: none; /* Sin viñetas */
+        padding: 0;
+    }
+
+        footer ul li {
+            margin-bottom: 10px;
+        }
+
+            footer ul li a {
+                color: #E0E0E0; /* Enlaces en gris claro */
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+
+                footer ul li a:hover {
+                    color: #03DAC6; /* Color de hover */
+                }
+
+    footer .footer-bottom {
+        background-color: #1E1E1E; /* Fondo más oscuro */
+        padding: 10px 0;
+        margin-top: 20px;
+    }
+
+        footer .footer-bottom p {
+            margin: 0;
+            color: #888888; /* Texto apagado */
+            font-size: 14px;
+            text-align: center;
+        }
+
+    /* Iconos de la comunidad */
+    footer ul li a i {
+        margin-right: 10px; /* Espaciado entre icono y texto */
+        font-size: 18px;
+    }
+
+
+@media (max-width: 768px) {
+    header .search-bar {
+        width: 100%; /* Ocupa todo el ancho en dispositivos pequeños */
+    }
+
+    .nav > li {
+        display: block;
+        margin-bottom: 10px;
+    }
+}

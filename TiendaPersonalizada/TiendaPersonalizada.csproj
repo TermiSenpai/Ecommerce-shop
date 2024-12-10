@@ -8,6 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Blog\**" />
+    <Compile Remove="Views\Contact\**" />
+    <Content Remove="Views\Blog\**" />
+    <Content Remove="Views\Contact\**" />
+    <EmbeddedResource Remove="Views\Blog\**" />
+    <EmbeddedResource Remove="Views\Contact\**" />
+    <None Remove="Views\Blog\**" />
+    <None Remove="Views\Contact\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="Views\Home\404.cshtml" />
     <Content Remove="Views\Home\blog-single.cshtml" />
     <Content Remove="Views\Home\blog.cshtml" />
@@ -20,14 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Views\Home\404.cshtml" />
-    <None Include="Views\Blog\blog-single.cshtml" />
-    <None Include="Views\Blog\blog.cshtml" />
-    <None Include="Views\Home\cart.cshtml" />
-    <None Include="Views\Home\checkout.cshtml" />
-    <None Include="Views\Contact\contact-us.cshtml" />
-    <None Include="Views\Home\login.cshtml" />
-    <None Include="Views\Home\product-details.cshtml" />
     <None Include="Views\Shop\shop.cshtml" />
   </ItemGroup>
 
@@ -37,6 +40,17 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.11" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.11" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\Shared\Error404.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\css\dark-theme.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

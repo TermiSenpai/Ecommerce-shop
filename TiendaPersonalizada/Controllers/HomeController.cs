@@ -8,5 +8,18 @@ namespace TiendaPersonalizada.Controllers
         {
             return View();
         }
+        // Action for generic errors
+        public IActionResult Error()
+        {
+            return View("~/Views/Shared/Error.cshtml"); // Specify the shared view explicitly
+        }
+
+        // Action for 404 errors
+        public IActionResult Error404()
+        {
+            return View("~/Views/Shared/Error404.cshtml"); // Specify the shared view explicitly
+        }
+
+
     }
 }
